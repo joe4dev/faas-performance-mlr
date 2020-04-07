@@ -1,4 +1,5 @@
 Replication Package for "The State of Research on Function-as-a-Service (FaaS) Performance Evaluation: A Multivocal Literature Review (MLR)"
+[![DOI](https://zenodo.org/badge/251018327.svg)](https://zenodo.org/badge/latestdoi/251018327)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 =========
 
