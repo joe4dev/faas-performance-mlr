@@ -1,4 +1,4 @@
-Replication Package for "The State of Research on Function-as-a-Service (FaaS) Performance Evaluation: A Multivocal Literature Review (MLR)"
+Replication Package for "The State of Research on Function-as-a-Service Performance Evaluation: A Multivocal Literature Review"
 [![DOI](https://zenodo.org/badge/251018327.svg)](https://zenodo.org/badge/latestdoi/251018327)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 =========
@@ -8,6 +8,14 @@ Replication Package for "The State of Research on Function-as-a-Service (FaaS) P
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
 This replication package contains the raw dataset, scripts to produce all plots, and documentation on how to replicate our MLR study on FaaS performance evaluation.
+
+## Paper
+
+J. Scheuner and P. Leitner, “The State of Research on Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” 2020, Preprint, [arXiv:2004.03276](https://arxiv.org/abs/2004.03276).
+
+[![arXiv](https://img.shields.io/badge/arXiv-2004.03276-B31B1B.svg)](https://arxiv.org/abs/2004.03276)
+
+>Function-as-a-Service (FaaS) is one form of the serverless cloud computing paradigm and is defined through FaaS platforms (e.g., AWS Lambda) executing event-triggered code snippets (i.e., functions). Many studies that empirically evaluate the performance of such FaaS platforms have started to appear but we are currently lacking a comprehensive understanding of the overall domain. In our work, we survey existing research on FaaS performance evaluation and present results from a multivocal literature review (MLR) covering 112 studies from academic (51) and grey literature (61). We find that existing work heavily focuses on AWS Lambda and prevalently evaluates micro-benchmarks using simple functions to measure CPU speed and FaaS platform overhead (i.e., container cold starts). Further, we identify a mismatch between academic and industrial sources on tested platform configurations, conclude that function triggers remain insufficiently studied, and list HTTP API gateways and cloud storages as the most used external service integrations. Following existing guidelines on experimentation in cloud systems, we discover many flaws threatening the reproducibility of experiments presented in the surveyed studies. We conclude with a discussion of gaps in literature and highlight methodological suggestions that may serve to improve future FaaS performance evaluation studies.
 
 ## Dataset
 
