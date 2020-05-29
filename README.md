@@ -1,4 +1,4 @@
-Replication Package for "The State of Research on Function-as-a-Service Performance Evaluation: A Multivocal Literature Review"
+Replication Package for "Function-as-a-Service Performance Evaluation: A Multivocal Literature Review"
 [![DOI](https://zenodo.org/badge/251018327.svg)](https://zenodo.org/badge/latestdoi/251018327)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 =========
@@ -11,11 +11,11 @@ This replication package contains the raw dataset, scripts to produce all plots,
 
 ## Paper
 
-J. Scheuner and P. Leitner, “The State of Research on Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” 2020, Preprint, [arXiv:2004.03276](https://arxiv.org/abs/2004.03276).
+J. Scheuner and P. Leitner, “Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” 2020, Preprint, [arXiv:2004.03276](https://arxiv.org/abs/2004.03276).
 
 [![arXiv](https://img.shields.io/badge/arXiv-2004.03276-B31B1B.svg)](https://arxiv.org/abs/2004.03276)
 
->Function-as-a-Service (FaaS) is one form of the serverless cloud computing paradigm and is defined through FaaS platforms (e.g., AWS Lambda) executing event-triggered code snippets (i.e., functions). Many studies that empirically evaluate the performance of such FaaS platforms have started to appear but we are currently lacking a comprehensive understanding of the overall domain. In our work, we survey existing research on FaaS performance evaluation and present results from a multivocal literature review (MLR) covering 112 studies from academic (51) and grey literature (61). We find that existing work heavily focuses on AWS Lambda and prevalently evaluates micro-benchmarks using simple functions to measure CPU speed and FaaS platform overhead (i.e., container cold starts). Further, we identify a mismatch between academic and industrial sources on tested platform configurations, conclude that function triggers remain insufficiently studied, and list HTTP API gateways and cloud storages as the most used external service integrations. Following existing guidelines on experimentation in cloud systems, we discover many flaws threatening the reproducibility of experiments presented in the surveyed studies. We conclude with a discussion of gaps in literature and highlight methodological suggestions that may serve to improve future FaaS performance evaluation studies.
+>Function-as-a-Service (FaaS) is one form of the serverless cloud computing paradigm and is defined through FaaS platforms (e.g., AWS Lambda) executing event-triggered code snippets (i.e., functions). Many studies that empirically evaluate the performance of such FaaS platforms have started to appear but we are currently lacking a comprehensive understanding of the overall domain. To address this gap, we conducted a multivocal literature review (MLR) covering 112 studies from academic (51) and grey (61) literature. We find that existing work mainly studies the AWS Lambda platform and focuses on micro-benchmarks using simple functions to measure CPU speed and FaaS platform overhead (i.e., container cold starts). Further, we discover a mismatch between academic and industrial sources on tested platform configurations, find that function triggers remain insufficiently studied, and identify HTTP API gateways and cloud storages as the most used external service integrations. Following existing guidelines on experimentation in cloud systems, we discover many flaws threatening the reproducibility of experiments presented in the surveyed studies. We conclude with a discussion of gaps in literature and highlight methodological suggestions that may serve to improve future FaaS performance evaluation studies.
 
 ## Dataset
 
@@ -44,7 +44,7 @@ The following figure summarizes all sources:
 
 ![MLR Process for Academic Literature](./img/mlr-process-academic.png)
 
-#### 1) Manual Search
+#### Manual Search for Academic Literature
 
 *Manual Search* consists of screening the following related publications:
 
@@ -53,7 +53,7 @@ The following figure summarizes all sources:
 * b) J. Spillner and M. Al-Ameen, “Serverless literature dataset,” 2019.
 * c) V. Yussupov, U. Breitenbücher, F. Leymann, and M. Wurster, “A systematic mapping study on engineering function-as-a-service platforms and tools,” in Proceedings of the 12th IEEE/ACM International Conference on Utility and Cloud Computing, pp. 229–240, 2019.
 
-#### 2) Database Search
+#### Database Search
 
 For the *Database Search* strategy, we use the following search string for all sources:
 
@@ -63,7 +63,22 @@ For the *Database Search* strategy, we use the following search string for all s
 
 We only consider publications after 2015-01-01 by either configuring the search engine appropriately or adding the following suffix to the search string: `AND year>=2015`.
 
-#### Database Search Engines
+##### Query Motivation
+
+* `(serverless OR faas)` find studies in the area of serverless computing and Function-as-a-Service
+* `(performance OR benchmark)` find studies related to performance and performance benchmarking
+* `experiment` targets empirical research. We are interested in measurement-based approaches but aim to exclude pure modeling research, FaaS surveys, FaaS feature comparisons, etc.
+We assume that academic papers mention their research methodology.
+* `lambda` narrows the search string to actual FaaS platforms (i.e., AWS Lambda) or when referring to 'lambda functions' (independently of the provider as used by~\citet{oakes:18}) to avoid a large number of false positives from other domains as experienced by [Yussupov et al.](https://dl.acm.org/doi/10.1145/3344341.3368803).
+
+##### Query Adaptations
+
+We performed the following adaptations of the search string:
+
+* Without `lambda` keyword: Omitting the keyword `lambda` resulted in too many false positives with a total of 4805 matches (vs 691). We used an initial training set of 43 publications and found that 100% of them contain the string "lambda" in their fulltext.
+* With double quotes `"`: Using double quotes includes only exact string matches and resulted in a total of 376 publications (vs 691) or 357 after duplicate removal. We found that this query is too narrow as it misses 6 relevant publications that are covered with our chosen search string.
+
+##### Database Search Engines
 
 We use the advanced query syntax of the following academic research databases:
 
@@ -79,7 +94,7 @@ We use the advanced query syntax of the following academic research databases:
 
 <sup>*</sup> Requires institutional (e.g., through university VPN) or personal account
 
-#### Initial Search Details
+##### Initial Search Details
 
 The following table summarizes the initial search results and provides the exact query string and direct link for all databases.
 The search was performed at 2019-10-21 and all results are available as `ID.bib` under [./data/query_academic](./data/query_academic).
@@ -96,7 +111,7 @@ The search was performed at 2019-10-21 and all results are available as `ID.bib`
 
 <sup>*</sup> Requires manual steps: 1) copy the query string into the advanced search field 2) add custom year range 2015 - 2019
 
-#### Export Instructions
+##### Export Instructions
 
 The following instructions show how query results from the research databases are exported into `*.bib` files:
 
@@ -108,13 +123,6 @@ The following instructions show how query results from the research databases ar
   * SpringerLink does not support bibtex export and therefore, we followed a workaround described [here](https://www.leniel.net/2017/06/using-zotero-to-convert-springerlink-full-csv-search-result-to-bibtex-format.html). Notice that the import/matching could take a while until the indices and paper counts in the list are updated properly.
 * wiley: 1) Select all 2) Export citations > bibtex 3) repeat for all pages 4) merge all result files
 * scopus: 1) choose 100 per page 2) select all 3) Export > Bibtex
-
-#### Query Adaptations
-
-We performed the following adaptations of the search string:
-
-* Without `lambda` keyword: Omitting the keyword `lambda` resulted in too many false positives with a total of 4805 matches (vs 691). We used an initial training set of 43 publications and found that 100% of them contain the string "lambda" in their fulltext.
-* With double quotes `"`: Using double quotes includes only exact string matches and resulted in a total of 376 publications (vs 691) or 357 after duplicate removal. We found that this query is too narrow as it misses 6 relevant publications that are covered with our chosen search string.
 
 ### Grey Literature Search Queries
 
@@ -175,9 +183,10 @@ Therefore, we manually compose four subqueries to implement an equivalent search
 #### Export Instructions
 
 We used non-personalized private search mode through private Google Chrome browser windows wherever possible.
-Notice that the number of search results for Google search is only a rough estimate and typically changes when reaching the last page.
-Further, Google sometimes omits entries similar to the displayed results: "In order to show you the most relevant results, we have omitted some entries very similar to the 200 already displayed. If you like, you can repeat the search with the omitted results included."
-In that case, we repeated the search with and without the omitted results and kept both versions (e.g., google2 and google2.2 or google4.2 but google4 doesn't exist because omitted results have less pages).
+Notice that the number of search results for Google search is only a rough estimate and typically changes (dramatically) when reaching the last page<sup>1</sup>.
+Therefore, we used double quotes `"` for exact matching (i.e., exclude Google's fuzzy search results) and achieving more accurate search estimates.
+Further, Google filters out highly redundant search results by default. For the google1 query, we repeated the search with disabled redundancy filtering and kept both versions (e.g., google2 and google2.2 or google4.2 but google4 doesn't exist because omitted results have less pages)<sup>2</sup>.
+
 We used the Google Chrome export options for PDF and HTML in combination with the following steps:
 
 * google: 1) Paste link in private browser mode 2) Settings > Search Settings: choose region "United States" and 100 results per page
@@ -188,6 +197,11 @@ We used the Google Chrome export options for PDF and HTML in combination with th
 
 The authors also saved PDF or HTML files of all relevant articles in case some sources become unavailable.
 However, we cannot publish these website copies for legal reasons.
+
+<sup>1</sup> Google Support: [The count of the number of search results is incorrect](https://support.google.com/gsa/answer/2672285?hl=en)<br/>
+Search Engine Land: [Why Google Can’t Count Results Properly](https://searchengineland.com/why-google-cant-count-results-properly-53559)
+
+<sup>2</sup> Google Support: [In order to show you the most relevant results, we have omitted some entries](https://support.google.com/gsa/answer/2710009?hl=en)
 
 ## Plots
 

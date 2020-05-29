@@ -1,7 +1,7 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Joel at 2020-03-28 17:50:00 +0100 
+%% Created for Joel at 2020-05-28 21:20:49 +0200 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
@@ -23,23 +23,6 @@
 	Year = {2020}}
 
 @inproceedings{jonas:17,
-
-* PyWren serializes a Python function using cloudpickle [7]
-
-# Motivation
-* "Distributed computing remains inaccessible to a large number of users" => too hard to setup clusters
-* "Why is there no cloud button?"
-* many problems with current cloud computing stem from a server-oriented resource model
-* Technology trends towards disaggregated storage (and even memory) => less performance benefits from co-location in the future
-
-# Findings
-* easy to get into use by using general purpose Python
-* efficient Map operations
-* remote storage may not be a significant bottleneck (scaled up to 60-80GB/s across 2800 simultaneous functions)
-* "storage throughput as a major bottleneck for larger shuffles"
-
-# Conclusion
-Propose the use of stateless functions and remote storage for data processing system => it's feasible and yields good performance while easy to use},
 	Author = {Jonas, Eric and Pu, Qifan and Venkataraman, Shivaram and Stoica, Ion and Recht, Benjamin},
 	Booktitle = {Proceedings of the 2017 Symposium on Cloud Computing},
 	Date-Added = {2020-02-23 17:56:55 +0100},
@@ -56,8 +39,6 @@ Propose the use of stateless functions and remote storage for data processing sy
 	Bdsk-Url-4 = {http://ericjonas.com/pages/pywren.html}}
 
 @article{kuhlenkamp:20,
-
-},
 	Author = {Kuhlenkamp, J{\"o}rn and Werner, Sebastian and Borges, Maria C and Ernst, Dominik and Wenzel, Daniel},
 	Date-Added = {2020-02-23 17:55:51 +0100},
 	Date-Modified = {2020-02-23 21:30:44 +0100},
@@ -189,9 +170,6 @@ Propose the use of stateless functions and remote storage for data processing sy
 
 @inproceedings{hendrickson:16,
 	__Markedentry = {[joe:6]},
-	Address = {Denver, CO},
-Movitation why containers are not enough
-},
 	Author = {Scott Hendrickson and Stephen Sturdevant and Tyler Harter and Venkateshwaran Venkataramani and Andrea C. Arpaci-Dusseau and Remzi H. Arpaci-Dusseau},
 	Booktitle = {8th {USENIX} Workshop on Hot Topics in Cloud Computing (HotCloud 16)},
 	Date-Added = {2020-02-23 17:30:35 +0100},
@@ -209,13 +187,6 @@ Movitation why containers are not enough
 	Bdsk-Url-2 = {http://www.open-lambda.org/index.htm}}
 
 @inproceedings{gan:19,
-
-## Serverless
-
-"Latency is considerably higher for Lambda when using S3, " => "The majority of this overhead disap- pears when using remote memory to pass state between dependent serverless functions."
-- still, performance variability is higher in Lambda
-+ " cost is almost an order of magnitude lower for Lambda, "
-+ Fig 21 highlights Lambda abilities to scale resources quickly},
 	Author = {Gan, Yu and Zhang, Yanqi and Cheng, Dailun and Shetty, Ankitha and Rathi, Priyal and Katarki, Nayan and Bruno, Ariana and Hu, Justin and Ritchken, Brian and Jackson, Brendon and others},
 	Booktitle = {Proceedings of the Twenty-Fourth International Conference on Architectural Support for Programming Languages and Operating Systems},
 	Date-Added = {2020-02-23 17:28:56 +0100},
@@ -230,9 +201,6 @@ Movitation why containers are not enough
 	Bdsk-Url-2 = {https://github.com/delimitrou/DeathStarBench}}
 
 @inproceedings{fouladi:17,
-interesting serverless use case
-
-This example actually motivated the creation of PyWren (see comment in appendix)},
 	Author = {Fouladi, Sadjad and Wahby, Riad S and Shacklett, Brennan and Balasubramaniam, Karthikeyan and Zeng, William and Bhalerao, Rahul and Sivaraman, Anirudh and Porter, George and Winstein, Keith},
 	Booktitle = {NSDI},
 	Date-Added = {2020-02-23 17:27:23 +0100},
@@ -247,9 +215,6 @@ This example actually motivated the creation of PyWren (see comment in appendix)
 	Bdsk-Url-3 = {https://github.com/excamera/excamera-results}}
 
 @article{albuquerque-jr:17,
-
-# Findings
-* FaaS and PaaS performance equivalent},
 	Author = {Albuquerque Jr, Lucas F and Ferraz, Felipe Silva and Oliveira, Rodrigo FAP and Galdino, Sergio ML},
 	Date-Added = {2020-02-23 17:23:26 +0100},
 	Date-Modified = {2020-02-23 21:30:49 +0100},
@@ -10543,9 +10508,51 @@ This example actually motivated the creation of PyWren (see comment in appendix)
 	</dict>
 	<dict>
 		<key>group name</key>
+		<string>A2.1) ACM Digital Library</string>
+		<key>keys</key>
+		<string>akkus:18,fouladi:19,hall:19,mohan:19,niu:19,oakes:18,pu:19,singhvi:17,zhang:19,perez:19,wang:18</string>
+	</dict>
+	<dict>
+		<key>group name</key>
+		<string>A2.2) IEEE Explore</string>
+		<key>keys</key>
+		<string>bardsley:18,gupta:18,ishakian:18,kim:19,kim:19a,lee:18,lloyd:18,lloyd:18a,manner:18,mcgrath:16,mcgrath:17,mohanty:18,pelle:19,puripunpinyo:17,saha:18,werner:18,lopez:18</string>
+	</dict>
+	<dict>
+		<key>group name</key>
+		<string>A2.3) ISI Web of Science</string>
+		<key>keys</key>
+		<string>puripunpinyo:17</string>
+	</dict>
+	<dict>
+		<key>group name</key>
+		<string>A2.4) Science Direct</string>
+		<key>keys</key>
+		<string>gimenez-alventosa:19,malawski:17</string>
+	</dict>
+	<dict>
+		<key>group name</key>
+		<string>A2.5) SpringerLink</string>
+		<key>keys</key>
+		<string>back:18,bortolini:20,jiang:17,kuhlenkamp:17,spillner:18</string>
+	</dict>
+	<dict>
+		<key>group name</key>
+		<string>A2.6) Wiley InterScience</string>
+		<key>keys</key>
+		<string>figiela:18</string>
+	</dict>
+	<dict>
+		<key>group name</key>
+		<string>A2.7) Scopus</string>
+		<key>keys</key>
+		<string>figiela:18,malawski:17,puripunpinyo:17,singhvi:17</string>
+	</dict>
+	<dict>
+		<key>group name</key>
 		<string>A2) Database Search</string>
 		<key>keys</key>
-		<string>akkus:18,back:18,bardsley:18,bortolini:20,figiela:18,fouladi:19,gimenez-alventosa:19,gupta:18,hall:19,ishakian:18,jiang:17,kim:19,kim:19a,kuhlenkamp:17,lee:18,lloyd:18,lloyd:18a,lopez:18,malawski:17,manner:18,mcgrath:16,mcgrath:17,mohan:19,mohanty:18,niu:19,oakes:18,pelle:19,perez:19,pu:19,puripunpinyo:17,saha:18,singhvi:17,spillner:18,werner:18,zhang:19</string>
+		<string>akkus:18,back:18,bardsley:18,bortolini:20,figiela:18,fouladi:19,gimenez-alventosa:19,gupta:18,hall:19,ishakian:18,jiang:17,kim:19,kim:19a,kuhlenkamp:17,lee:18,lloyd:18,lloyd:18a,lopez:18,malawski:17,manner:18,mcgrath:16,mcgrath:17,mohan:19,mohanty:18,niu:19,oakes:18,pelle:19,perez:19,pu:19,puripunpinyo:17,saha:18,singhvi:17,spillner:18,werner:18,zhang:19,wang:18</string>
 	</dict>
 	<dict>
 		<key>group name</key>

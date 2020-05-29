@@ -104,7 +104,7 @@ write.csv(grid2, "configurations.csv", row.names = FALSE)
 # If same rounded label should correspond same length: y = round(rel_freq, 0)
 ggplot(grid2, aes(x=new_col, y=rel_freq, label=rel_freq, fill=literature_type)) +
   geom_bar(position=position_dodge(width = -0.9), stat="identity") +
-  geom_text(aes(label=round(rel_freq, 0)), position=position_dodge(width = -0.9), hjust = -0.4) +
+  geom_text(aes(label=paste(round(rel_freq, 0), "%", sep = "")), position=position_dodge(width = -0.9), hjust = -0.2) +
   labs(x = "Platform Configurations", y = "Share of Studies (%)", fill = "Literature Type") +
   coord_flip(clip = "off") +
   facet_grid(rows = vars(facet), scales = "free_y", space = "free_y") +

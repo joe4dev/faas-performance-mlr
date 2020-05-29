@@ -149,7 +149,7 @@ combo <- ggplot(grid3, aes(x = platform, y = characteristic, group = literature_
   # ggtitle('Benchmark Types per Platform') +
   labs(x = 'FaaS Platforms', y = 'Performance Characteristics', fill = "Literature Type") +
   geom_point(aes(size = count, fill = literature_type), alpha=1, shape=21, color="black", show.legend = TRUE, position = position_dodge(width = 1)) +
-  guides(size=FALSE, fill = guide_legend(override.aes = list(size=8))) +
+  guides(size=FALSE, fill = guide_legend(override.aes = list(size=10))) +
   scale_size_area(max_size = 22) +
   geom_text(aes(label=count), position = position_dodge(width = 1), show.legend = FALSE, colour="white") + # fontface="bold"
   geom_text(aes(label=paste(round((count / literature_type_count * 100), digits = 0), "%", sep = "")), position = position_dodge(width = 1), vjust = 4.3, show.legend = FALSE) +
