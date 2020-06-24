@@ -11,11 +11,26 @@ This replication package contains the raw dataset, scripts to produce all plots,
 
 ## Paper
 
-J. Scheuner and P. Leitner, “Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” 2020, Preprint, [arXiv:2004.03276](https://arxiv.org/abs/2004.03276).
+J. Scheuner and P. Leitner, “Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” Accepted at the [Journal of Systems and Software (JSS)](https://www.journals.elsevier.com/journal-of-systems-and-software), Preprint: [arXiv:2004.03276](https://arxiv.org/abs/2004.03276).
 
 [![arXiv](https://img.shields.io/badge/arXiv-2004.03276-B31B1B.svg)](https://arxiv.org/abs/2004.03276)
 
->Function-as-a-Service (FaaS) is one form of the serverless cloud computing paradigm and is defined through FaaS platforms (e.g., AWS Lambda) executing event-triggered code snippets (i.e., functions). Many studies that empirically evaluate the performance of such FaaS platforms have started to appear but we are currently lacking a comprehensive understanding of the overall domain. To address this gap, we conducted a multivocal literature review (MLR) covering 112 studies from academic (51) and grey (61) literature. We find that existing work mainly studies the AWS Lambda platform and focuses on micro-benchmarks using simple functions to measure CPU speed and FaaS platform overhead (i.e., container cold starts). Further, we discover a mismatch between academic and industrial sources on tested platform configurations, find that function triggers remain insufficiently studied, and identify HTTP API gateways and cloud storages as the most used external service integrations. Following existing guidelines on experimentation in cloud systems, we discover many flaws threatening the reproducibility of experiments presented in the surveyed studies. We conclude with a discussion of gaps in literature and highlight methodological suggestions that may serve to improve future FaaS performance evaluation studies.
+### Abstract
+
+Function-as-a-Service (FaaS) is one form of the serverless cloud computing paradigm and is defined through FaaS platforms (e.g., AWS Lambda) executing event-triggered code snippets (i.e., functions). Many studies that empirically evaluate the performance of such FaaS platforms have started to appear but we are currently lacking a comprehensive understanding of the overall domain. To address this gap, we conducted a multivocal literature review (MLR) covering 112 studies from academic (51) and grey (61) literature. We find that existing work mainly studies the AWS Lambda platform and focuses on micro-benchmarks using simple functions to measure CPU speed and FaaS platform overhead (i.e., container cold starts). Further, we discover a mismatch between academic and industrial sources on tested platform configurations, find that function triggers remain insufficiently studied, and identify HTTP API gateways and cloud storages as the most used external service integrations. Following existing guidelines on experimentation in cloud systems, we discover many flaws threatening the reproducibility of experiments presented in the surveyed studies. We conclude with a discussion of gaps in literature and highlight methodological suggestions that may serve to improve future FaaS performance evaluation studies.
+
+### Citation
+
+```bibtex
+@article{scheuner:20-jss,
+  title = "Function-as-a-Service Performance Evaluation: A Multivocal Literature Review",
+  journal = "Journal of Systems and Software",
+  note = "in press",
+  year = "2020",
+  url = "https://arxiv.org/abs/2004.03276",
+  author = "Joel Scheuner and Philipp Leitner"
+}
+```
 
 ## Dataset
 
