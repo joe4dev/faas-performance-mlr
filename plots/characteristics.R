@@ -165,4 +165,5 @@ combo <- ggplot(grid3, aes(x = platform, y = characteristic, group = literature_
     strip.text.y = element_text(margin = margin(l = 4))
   )
 ggsave('characteristics.pdf', width = 13, height = 15, device = cairo_pdf(), plot = combo)
+# ggsave('characteristics.eps', width = 13, height = 15, plot = combo)
 dev.off()

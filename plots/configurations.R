@@ -124,4 +124,5 @@ ggplot(grid2, aes(x=new_col, y=rel_freq, label=rel_freq, fill=literature_type)) 
   )
 
 ggsave("configurations.pdf", width = 6.5, height = 16.5, device = cairo_pdf())
+# ggsave("configurations.eps", width = 6.5, height = 16.5)
 dev.off()

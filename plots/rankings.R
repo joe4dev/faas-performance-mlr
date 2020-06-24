@@ -40,4 +40,5 @@ ggplot(df_freq, aes(fill=venue_ranking, y=rel_freq, x=x)) +
         legend.box.margin=margin(0, 0,-10, 0)
         )
 ggsave('rankings.pdf', width = 6.5, height = 2, device = cairo_pdf())
+# ggsave('rankings.eps', width = 6.5, height = 2)
 dev.off()

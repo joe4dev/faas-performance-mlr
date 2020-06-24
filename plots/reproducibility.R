@@ -90,3 +90,4 @@ background <- bgcolors["blue-gray"]
 g2 <- cowplot::ggdraw(p_with_legend) + 
   theme(plot.background = element_rect(fill=background, color = NA))
 ggsave('reproducibility.pdf', width = 6.5, height = 9.3, device = cairo_pdf(), plot = g2)
+# ggsave('reproducibility.eps', width = 6.5, height = 9.3, plot = g2)

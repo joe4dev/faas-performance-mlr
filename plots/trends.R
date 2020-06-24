@@ -62,6 +62,7 @@ ggplot(grid, aes(x=literature_type, y=freq, fill = venue_type, label=freq)) +
     axis.text.x = element_text(size = 10)
   )
 ggsave('trends.pdf', width = 6.5, height = 6.8, device = cairo_pdf())
+# ggsave('trends.eps', width = 6.5, height = 6.8)
 dev.off()
 
 # Cumulative lineplot
