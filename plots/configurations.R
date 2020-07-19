@@ -22,7 +22,7 @@ c_df <- function(mlr,
   df_type <- mlr %>%
     filter(selection == "relevant") %>%
     group_by(literature_type) %>%
-    summarise(freq = n())
+    summarise(freq = n(), .groups = 'drop')
   academic_count <- df_type %>% filter(literature_type == "academic") %>% pull(freq)
   grey_count <- df_type %>% filter(literature_type == "grey") %>% pull(freq)
 
@@ -31,7 +31,7 @@ c_df <- function(mlr,
     mutate(new_col = replace(get(col), get(col) %in% groups, "Others")) %>%
     ungroup() %>%
     group_by(literature_type, new_col) %>%
-    summarise(freq = n()) %>%
+    summarise(freq = n(), .groups = 'drop') %>%
     mutate(rel_freq = freq / sum(freq) * 100) %>%
     ungroup() %>%
     complete(literature_type, new_col, fill = list(freq = 0, rel_freq = 0)) %>%
@@ -46,7 +46,7 @@ c_df <- function(mlr,
   totals <- df_freq %>%
     ungroup %>%
     group_by(new_col) %>%
-    summarize(total = sum(freq), rel_total = mean(rel_freq))
+    summarise(total = sum(freq), rel_total = mean(rel_freq), .groups = 'drop')
 
   df2 <- merge(df_freq, totals) %>%
     mutate(new_col = fct_reorder(new_col, rel_total)) %>%

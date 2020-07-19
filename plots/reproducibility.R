@@ -34,7 +34,7 @@ p_plot <- function(mlr,
       grepl("no.*", get(col)) ~ "no"
     )) %>%
     group_by(literature_type, p_clean) %>%
-    summarise(freq = n()) %>%
+    summarise(freq = n(), .groups = 'drop') %>%
     mutate(rel_freq = freq / sum(freq) * 100) %>%
     ungroup() %>%
     complete(literature_type, p_clean, fill = list(freq = 0, rel_freq = 0)) %>%

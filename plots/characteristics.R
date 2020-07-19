@@ -50,15 +50,14 @@ df_adjusted <- df_cleaned %>%
 df_frequency <- df_adjusted %>%
   filter((c_value_clean == 1 & p_value_clean == 1)) %>%
   group_by(characteristic, platform, literature_type) %>%
-  summarise(freq = n()) %>%
-  ungroup %>%
+  summarise(freq = n(), .groups = 'drop') %>%
   # fix missing entries in plot because no grey literature studies does infra
   add_row(characteristic = "infra", literature_type = "grey", platform = "aws", freq = 0) %>%
   spread(platform, freq, fill = 0)
 
 # Reorder and sort ---------------------------
 df <- df_frequency %>%
-  ungroup(characteristic) %>%
+  ungroup %>%
   mutate(characteristic = factor(characteristic, levels = c("c_total", "micro_bench", "app_bench", "cpu", "fileio", "network", "other_micro", "overhead", "concurrency", "lifetime", "infra"))) %>%
   arrange(literature_type, characteristic) %>%
   select(literature_type, characteristic, p_total, everything())
@@ -99,33 +98,33 @@ grid <- rbind(df3, df4, df5)
 c_totals <- grid %>%
   filter(platform == "p_total") %>%
   group_by(characteristic) %>%
-  summarize(c_total = sum(count))
+  summarise(c_total = sum(count), .groups = 'drop')
 p_totals <- grid %>%
   filter(characteristic == "c_total") %>%
   group_by(platform) %>%
-  summarize(p_total = sum(count))
+  summarise(p_total = sum(count), .groups = 'drop')
 grid2 <- grid %>%
   merge(c_totals) %>%
   merge(p_totals)
 
 grid3 <- grid2 %>%
   mutate(characteristic = fct_recode(characteristic,
-                                     "Total per Platform"    = "c_total",
-                                     "Microbenchmark"      = "micro_bench",
-                                     "Applicationbenchmark" = "app_bench",
+                                     "Total per\nPlatform"    = "c_total",
+                                     "Micro"      = "micro_bench",
+                                     "Application" = "app_bench",
                                      "CPU" = "cpu",
                                      "Network" = "network",
                                      "File I/O" = "fileio",
                                      "Others" = "other_micro",
-                                     "Platform Overhead" = "overhead",
-                                     "Workload Concurrency" = "concurrency",
-                                     "Infrastructure Inspection" = "infra",
+                                     "Platform\nOverhead" = "overhead",
+                                     "Workload\nConcurrency" = "concurrency",
+                                     "Infrastructure\nInspection" = "infra",
                                      # figiela:18 instance lifetime
                                      # lloyd:18 instance retention
-                                     "Instance Lifetime" = "lifetime"
+                                     "Instance\nLifetime" = "lifetime"
   )) %>%
   mutate(platform = fct_recode(platform,
-                               "Total per Characteristic"    = "p_total",
+                               "Total per\nCharacteristic"    = "p_total",
                                "AWS"      = "aws",
                                "Azure" = "azure",
                                "Google" = "google",
@@ -145,24 +144,31 @@ grid3 <- grid2 %>%
   # filter(count != 0)
 
 # Plot combo characteristics ---------------------------
+label_font_size <- 15
 combo <- ggplot(grid3, aes(x = platform, y = characteristic, group = literature_type)) +
   # ggtitle('Benchmark Types per Platform') +
   labs(x = 'FaaS Platforms', y = 'Performance Characteristics', fill = "Literature Type") +
   geom_point(aes(size = count, fill = literature_type), alpha=1, shape=21, color="black", show.legend = TRUE, position = position_dodge(width = 1)) +
   guides(size=FALSE, fill = guide_legend(override.aes = list(size=10))) +
-  scale_size_area(max_size = 22) +
-  geom_text(aes(label=count), position = position_dodge(width = 1), show.legend = FALSE, colour="white") + # fontface="bold"
-  geom_text(aes(label=paste(round((count / literature_type_count * 100), digits = 0), "%", sep = "")), position = position_dodge(width = 1), vjust = 4.3, show.legend = FALSE) +
+  scale_size_area(max_size = 24) +
+  geom_text(aes(label=count), position = position_dodge(width = 1), show.legend = FALSE, colour="white", size = 4) + # fontface="bold"
+  geom_text(aes(label=paste(round((count / literature_type_count * 100), digits = 0), "%", sep = "")), position = position_dodge(width = 1), vjust = 4.0, show.legend = FALSE, size = 5) +
   geom_vline(xintercept=seq(1.5, length(unique(df3$platform))-0.5, 1), lwd=1, colour="grey", alpha = 0.7) +
   theme_economist() +
   scale_fill_economist() +
   facet_grid(rows = vars(facet), scales = "free_y") +
   theme(
     # Fix overlap of x axis title
-    axis.title.x = element_text(size = 13, margin = margin(t = 8)),
-    axis.title.y = element_text(size = 13, margin = margin()),
+    axis.title.x = element_text(size = label_font_size, margin = margin(t = 8)),
+    axis.title.y = element_text(size = label_font_size, margin = margin()),
     # Add space between facet title and graph
-    strip.text.y = element_text(margin = margin(l = 4))
+    strip.text.y = element_text(margin = margin(l = 4), size = label_font_size),
+    # Increase font size of labels
+    text = element_text(size = 13),
+    # Vertically center x axis labels
+    axis.text.x = element_text(vjust=0.5),
+    # Increase font size of legend title
+    legend.title = element_text(size = 13)
   )
 ggsave('characteristics.pdf', width = 13, height = 15, device = cairo_pdf(), plot = combo)
 # ggsave('characteristics.eps', width = 13, height = 15, plot = combo)

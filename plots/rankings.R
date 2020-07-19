@@ -17,7 +17,7 @@ df <- mlr %>%
 
 df_freq <- df %>%
   group_by(venue_ranking) %>%
-  summarise(freq = n()) %>%
+  summarise(freq = n(), .groups = 'drop') %>%
   mutate(rel_freq = freq / sum(freq) * 100) %>%
   mutate(x = paste("Academic Studies\n(N=", sum(freq), ")", sep = ""))
 

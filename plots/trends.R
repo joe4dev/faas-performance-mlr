@@ -22,7 +22,7 @@ df <- mlr %>%
 
 df_freq <- df %>%
   group_by(year_published, literature_type, venue_type) %>%
-  summarise(freq = n()) %>%
+  summarise(freq = n(), .groups = 'drop') %>%
   # Remove 3 Blogs without publication date/year
   filter(!is.na(year_published)) %>%
   # Remove 2020 (misleading as partial year)
@@ -35,7 +35,7 @@ df_freq <- df %>%
 
 totals <- df_freq %>%
   group_by(year_published, literature_type) %>%
-  summarize(total = sum(freq))
+  summarise(total = sum(freq), .groups = 'drop')
 grid <- merge(df_freq, totals)
 
 # Save to csv ---------------------------

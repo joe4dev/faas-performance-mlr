@@ -10,7 +10,7 @@ df <- mlr %>%
 
 df_freq <- df %>%
   group_by(venue) %>%
-  summarise(freq = n()) %>%
+  summarise(freq = n(), .groups = 'drop') %>%
   mutate(rel_freq = freq / sum(freq) * 100) %>%
   arrange(desc(freq))
 
