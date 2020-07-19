@@ -11,8 +11,9 @@ This replication package contains the raw dataset, scripts to produce all plots,
 
 ## Paper
 
-J. Scheuner and P. Leitner, “Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” Accepted at the [Journal of Systems and Software (JSS)](https://www.journals.elsevier.com/journal-of-systems-and-software), Preprint: [arXiv:2004.03276](https://arxiv.org/abs/2004.03276).
+J. Scheuner and P. Leitner, “Function-as-a-Service Performance Evaluation: A Multivocal Literature Review,” [Journal of Systems and Software](https://www.journals.elsevier.com/journal-of-systems-and-software).
 
+[![DOI](https://zenodo.org/badge/doi/10.1016/j.jss.2020.110708.svg)](https://dx.doi.org/10.1016/j.jss.2020.110708)
 [![arXiv](https://img.shields.io/badge/arXiv-2004.03276-B31B1B.svg)](https://arxiv.org/abs/2004.03276)
 
 ### Abstract
