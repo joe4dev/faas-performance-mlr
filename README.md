@@ -23,13 +23,12 @@ Function-as-a-Service (FaaS) is one form of the serverless cloud computing parad
 
 ```bibtex
 @article{scheuner:20-jss,
- author = {Scheuner, Joel and Leitner, Philipp},
- journal = {Journal of Systems and Software (JSS)},
- doi = {10.1016/j.jss.2020.110708},
- note = {in press},
- title = {Function-as-a-Service Performance Evaluation: A Multivocal
-Literature Review},
- year = {2020}
+  author = {Scheuner, Joel and Leitner, Philipp},
+  journal = {Journal of Systems and Software},
+  doi = {10.1016/j.jss.2020.110708},
+  note = {in press},
+  title = {Function-as-a-Service Performance Evaluation: A Multivocal Literature Review},
+  year = {2020}
 }
 ```
 
@@ -49,7 +48,7 @@ The following steps describe how to use interactive querying:
 
     ![Filter View](./img/filter_view.png)
 
-2. Explore the data set using GSheet [sort & filter](https://support.google.com/docs/answer/3540681) functionality (e.g., discover open source studies):
+2. Explore the dataset using GSheet [sort & filter](https://support.google.com/docs/answer/3540681) functionality (e.g., discover open source studies):
 
     ![Filter Open Source Studies](./img/filter_example.png)
 
@@ -223,6 +222,28 @@ Search Engine Land: [Why Google Can’t Count Results Properly](https://searchen
 
 An up-to-date R language toolchain preferably with [RStudio](https://rstudio.com/) is required.
 Install the required packages imported at the top of each `*.R` file (e.g., `install.packages("ggplot2")`) from the official CRAN package repository (RStudio automatically detects to-be-installed packages).
+A dependency installation script is provided under `plots/install_dependencies.R`
 
 1. Open the RStudio project [faas_mlr.Rproj](./plots/faas_mlr.Rproj) (or alternatively set the R working directory to `./plots`)
-2. Run a given `*.R` file to produce the corresponding `*.pdf` plot. Example: `characteristics.R` produces `characteristics.pdf`.
+2. Run a given `*.R` file to produce the corresponding `*.pdf` plot. Example: `characteristics.R` produces `characteristics.pdf`. Example:
+
+    ```bash
+    cd plots
+    Rscript characteristics.R
+    ```
+
+The plots follow the economist color scheme in the [ggthemes](https://rdrr.io/cran/ggthemes/man/economist_pal.html) package.
+
+### Dependencies
+
+| **Software** | **Version** |
+| --- | --- |
+| R | 4.2.0 |
+| tidyr | 1.1.0.9000 (dev) |
+| vctrs | 0.3.2.9000 (dev) |
+| dplyr | 1.0.1 (dev) |
+| forcats | 0.5.0 |
+| ggplot2 | 3.3.2 |
+| ggthemes | 4.2.0 |
+
+> NOTE: In issue in `vctrs` caused error messages such as `... is not empty` (2020-06) but was fixed in July and works with the above installed versions (dev versions as of 2020-07-19).
