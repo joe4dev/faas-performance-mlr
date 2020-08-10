@@ -27,7 +27,6 @@ Function-as-a-Service (FaaS) is one form of the serverless cloud computing parad
   author = {Scheuner, Joel and Leitner, Philipp},
   journal = {Journal of Systems and Software},
   doi = {10.1016/j.jss.2020.110708},
-  note = {in press},
   title = {Function-as-a-Service Performance Evaluation: A Multivocal Literature Review},
   year = {2020}
 }
