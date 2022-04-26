@@ -1,5 +1,5 @@
 Replication Package for "Function-as-a-Service Performance Evaluation: A Multivocal Literature Review"
-[![DOI](https://zenodo.org/badge/251018327.svg)](https://zenodo.org/badge/latestdoi/251018327)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3906613.svg)](https://doi.org/10.5281/zenodo.3906613)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 =========
 
